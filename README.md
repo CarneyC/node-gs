@@ -34,7 +34,7 @@ Sample usage:
         .device('png16m')
         .output('/tmp/' + fileName + '-%d.png')
         .input('/tmp/' + fileName)
-        .log(true)
+        .quite()
         .exec(function (err, stdout, stderr) {
             if (!err) {
                // no error
