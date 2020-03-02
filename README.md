@@ -34,7 +34,7 @@ Sample usage:
         .device('png16m')
         .output('/tmp/' + fileName + '-%d.png')
         .input('/tmp/' + fileName)
-        .quite()
+        .quiet()
         .exec(function (err, stdout, stderr) {
             if (!err) {
                // no error
@@ -53,7 +53,7 @@ API
 * `output` - file - defaults to `-` which represents stdout
 * `option` - you can add any options that is not provided through the functions to the command
 * `input` - file
-* `quite` - this disables gs command logs
+* `quiet` - this disables gs command logs
 * `executablePath` - path to the Ghostscript executable files (example: ghostscript/bin/./). This can be useful for Lambda functions.
 * `exec` - callback
 

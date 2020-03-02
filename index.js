@@ -77,7 +77,7 @@ function gs() {
             this.options.push('-dSAFER');
             return this;
         },
-        "quite":          function () {
+        "quiet":          function () {
             this._log = false;
             return this;
         },
