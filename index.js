@@ -4,6 +4,7 @@ function gs() {
     return {
         "options":        [],
         "_input":         null,
+        "_log":           true,
         "excPath":        '',
         "option":         function (option) {
             this.options.push(option);
@@ -76,11 +77,17 @@ function gs() {
             this.options.push('-dSAFER');
             return this;
         },
+        "quite":          function () {
+            this._log = false;
+            return this;
+        },
         "exec":           function (cb) {
             var self = this;
             if (!this._input) return cb.call(self, 'No input specified');
 
-            console.log('gs command: ' + this.options.concat([this._input]));
+            if (this._log) {
+                console.log('gs command: ' + this.options.concat([this._input]));
+            }
 
             if (this.excPath) {
                 var proc = spawn(this.excPath, this.options.concat([this._input]));

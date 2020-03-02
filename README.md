@@ -5,12 +5,12 @@ NodeJS wrapper for `GhostScript` with the ability to set executable path in orde
 
 Installation
 =====
-`npm install https://github.com/sina-masnadi/node-gs/tarball/master`
+`npm install https://github.com/CarneyC/node-gs/tarball/master`
 
 or
 
     "dependencies": {
-        "gs": "https://github.com/sina-masnadi/node-gs/tarball/master"
+        "gs": "https://github.com/CarneyC/node-gs/tarball/master"
     }
 
 Usage
@@ -19,7 +19,7 @@ To set the executable path you can use:
 `executablePath('ghostscript/bin/./gs')`
 
 A compiled version of GhostScript (v9.20) for AWS Lambda can be find here:
-https://github.com/sina-masnadi/lambda-ghostscript
+https://github.com/CarneyC/lambda-ghostscript
 
 
 Sample usage:
@@ -34,6 +34,7 @@ Sample usage:
         .device('png16m')
         .output('/tmp/' + fileName + '-%d.png')
         .input('/tmp/' + fileName)
+        .log(true)
         .exec(function (err, stdout, stderr) {
             if (!err) {
                // no error
@@ -52,6 +53,7 @@ API
 * `output` - file - defaults to `-` which represents stdout
 * `option` - you can add any options that is not provided through the functions to the command
 * `input` - file
+* `quite` - this disables gs command logs
 * `executablePath` - path to the Ghostscript executable files (example: ghostscript/bin/./). This can be useful for Lambda functions.
 * `exec` - callback
 
